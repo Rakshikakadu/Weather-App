@@ -16,14 +16,6 @@ public class WeatherAppController {
 	@Autowired
     private WeatherApiServiceImpl weatherApiService;
 
-	 /**
-     * Endpoint to get the forecast summary for a specific location.
-     * 
-     * @param location The location for which the forecast summary is requested.
-     * @param clientId The client ID for authentication.
-     * @param clientSecret The client secret for authentication.
-     * @return ResponseEntity containing the forecast summary data or an error message if authentication fails.
-     */
     @GetMapping("/forecast-summary")
     public ResponseEntity<String> getForecastSummaryByLocationName(@RequestParam  String location, @RequestHeader("clientId") String clientId, @RequestHeader("clientSecret") String clientSecret) {
         if (clientId == null || clientSecret == null) {
@@ -33,14 +25,6 @@ public class WeatherAppController {
         return weatherApiService.getForecastSummaryByLocationName(location, clientId, clientSecret);
     }
 
-    /**
-     * Endpoint to get the hourly forecast for a specific location.
-     * 
-     * @param location The location for which the hourly forecast is requested.
-     * @param clientId The client ID for authentication.
-     * @param clientSecret The client secret for authentication.
-     * @return ResponseEntity containing the hourly forecast data or an error message if authentication fails.
-     */
     @GetMapping("/hourly-forecast")
     public ResponseEntity<String> getHourlyForecastByLocationName(@RequestParam String location, @RequestHeader("clientId") String clientId, @RequestHeader("clientSecret") String clientSecret) {
         if (clientId == null || clientSecret == null) {
