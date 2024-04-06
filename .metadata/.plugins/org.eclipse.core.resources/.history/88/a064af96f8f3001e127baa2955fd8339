@@ -1,0 +1,22 @@
+package com.diceTech.Service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class WeatherApiServiceImpl implements WeatherApiServiceIntr{
+	
+	
+
+	@Override
+	public String getForecastSummaryByLocationName(String location) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getHourlyForecastByLocationName(String location) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
