@@ -1,5 +1,0 @@
-server.port=8088
-weather.api.key=70928ebd6a89e1ac7b89ca6a146a5c07
-
-
-spring.application.name=WeatherApp

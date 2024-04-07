@@ -1,5 +1,0 @@
-package com.diceTech.Service;
-
-public interface WeatherApiServiceIntr {
-
-}

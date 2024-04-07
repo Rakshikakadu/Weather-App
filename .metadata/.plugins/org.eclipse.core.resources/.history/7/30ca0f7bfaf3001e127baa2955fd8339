@@ -1,9 +1,0 @@
-package com.diceTech.Service;
-
-public interface WeatherApiServiceIntr {
-	
-	public String getForecastSummaryByLocationName(String location);
-	
-	public String getHourlyForecastByLocationName(String location);
-
-}
