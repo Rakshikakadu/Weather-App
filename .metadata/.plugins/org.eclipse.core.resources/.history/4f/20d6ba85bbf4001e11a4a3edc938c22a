@@ -43,7 +43,7 @@ public class WeatherAppController {
      */
     @GetMapping("/hourly-forecast")
     public ResponseEntity<String> getHourlyForecastByLocationName(@RequestParam String location, @RequestHeader("clientId") String clientId, @RequestHeader("clientSecret") String clientSecret) {
-    	if ((clientId == null || clientSecret == null ) || (!clientId.equals("#Rakshika") || !clientSecret.equals("159753")) ) {
+        if (clientId == null || clientSecret == null) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Missing client ID or client secret.");
         }
 
