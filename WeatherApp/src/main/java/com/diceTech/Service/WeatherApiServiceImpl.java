@@ -20,7 +20,7 @@ import org.springframework.http.*;
 public class WeatherApiServiceImpl implements WeatherApiServiceIntr{
 	
 	// Injecting OpenWeather API key from application.properties
-	@Value("${weather.api.key}")
+	@Value("${weather.api.key}") 
     private String weatherApiKey;
 	
 	// Autowiring RestTemplate to make HTTP requests

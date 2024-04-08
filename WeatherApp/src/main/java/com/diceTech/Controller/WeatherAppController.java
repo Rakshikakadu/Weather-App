@@ -24,13 +24,18 @@ public class WeatherAppController {
      * @param clientSecret The client secret for authentication.
      * @return ResponseEntity containing the forecast summary data or an error message if authentication fails.
      */
-    @GetMapping("/forecast-summary")
+	@GetMapping("/forecast-summary")
     public ResponseEntity<String> getForecastSummaryByLocationName(@RequestParam  String location, @RequestHeader("clientId") String clientId, @RequestHeader("clientSecret") String clientSecret) {
-        if ((clientId == null || clientSecret == null ) || (!clientId.equals("#Rakshika") || !clientSecret.equals("159753")) ) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Missing client ID or client secret.");
-        }
+        try {
+            if (isInvalidCredentials(clientId, clientSecret)) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid client credentials.");
+            }
 
-        return weatherApiService.getForecastSummaryByLocationName(location, clientId, clientSecret);
+            return weatherApiService.getForecastSummaryByLocationName(location, clientId, clientSecret);
+        } catch (Exception e) {
+            // Log the exception
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while processing the request.");
+        }
     }
 
     /**
@@ -41,13 +46,22 @@ public class WeatherAppController {
      * @param clientSecret The client secret for authentication.
      * @return ResponseEntity containing the hourly forecast data or an error message if authentication fails.
      */
-    @GetMapping("/hourly-forecast")
+	@GetMapping("/hourly-forecast")
     public ResponseEntity<String> getHourlyForecastByLocationName(@RequestParam String location, @RequestHeader("clientId") String clientId, @RequestHeader("clientSecret") String clientSecret) {
-    	if ((clientId == null || clientSecret == null ) || (!clientId.equals("#Rakshika") || !clientSecret.equals("159753")) ) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Missing client ID or client secret.");
-        }
+        try {
+            if (isInvalidCredentials(clientId, clientSecret)) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid client credentials.");
+            }
 
-        return weatherApiService.getHourlyForecastByLocationName(location, clientId, clientSecret);
+            return weatherApiService.getHourlyForecastByLocationName(location, clientId, clientSecret);
+        } catch (Exception e) {
+            // Log the exception
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while processing the request.");
+        }
+    }
+    
+    private boolean isInvalidCredentials(String clientId, String clientSecret) {
+        return clientId == null || clientSecret == null || (!clientId.equals("#Rakshika") || !clientSecret.equals("159753"));
     }
 	
 }
