@@ -32,6 +32,10 @@ Clone the backend repository or set up your backend server to handle requests to
 /forecast-summary: Returns a summary of the weather forecast.
 /hourly-forecast: Returns hourly forecast data.
 
+#Swagger UI
+
+To access the Swagger UI for API documentation, navigate to http://localhost:8087/swagger-ui/index.html.
+
 ##Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
