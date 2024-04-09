@@ -6,10 +6,6 @@ A simple web application to fetch weather forecast data for a specific location.
 
 This Weather App allows users to enter a location and retrieve weather forecast data. It provides two options: to get a summary of the weather forecast or hourly forecast for the location.
 
-## Frontend
-
-The frontend of this Weather App is built using HTML, CSS, and JavaScript.
-
 ### Setup Instructions
 
 1. Clone the repository:
